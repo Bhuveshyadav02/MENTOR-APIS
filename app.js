@@ -10,7 +10,7 @@ require('dotenv').config();
 const app = express();
 
 // CORS setup
-const whitelist = ['http://localhost:3000', 'http://localhost:5173', 'http://Abhay-pc:3001','http://127.0.0.1:5173'];
+const whitelist = ['http://localhost:3000', 'http://localhost:5173', ,'http://127.0.0.1:5173','https://the-mentors.vercel.app'];
 const corsOptionsDelegate = (req, callback) => {
   const corsOptions = whitelist.indexOf(req.header('Origin')) !== -1
     ? { origin: true }
