@@ -10,14 +10,10 @@ require('dotenv').config();
 const app = express();
 
 // CORS setup
-const whitelist = ['http://localhost:3000', 'http://localhost:5173', ,'http://127.0.0.1:5173','https://the-mentors.vercel.app'];
 const corsOptionsDelegate = (req, callback) => {
-  const corsOptions = whitelist.indexOf(req.header('Origin')) !== -1
-    ? { origin: true }
-    : { origin: false };
+  const corsOptions = { origin: true }; // Allow all origins
   callback(null, corsOptions);
 };
-
 app.use(cors(corsOptionsDelegate)); // Apply CORS middleware
 
 app.use(express.json());
